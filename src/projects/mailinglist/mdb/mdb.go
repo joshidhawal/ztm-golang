@@ -127,7 +127,7 @@ func GetEmailBatch(db *sql.DB, params GetEmailBatchQueryParams) ([]EmailEntry, e
 	FROM emails
 	WHERE opt_out = false
 	ORDER BY id ASC
-	LIMIT ? OFFSET ?`, params.Count, (params.Page - 1*params.Count))
+	LIMIT ? OFFSET ?`, params.Count, (params.Page-1)*params.Count)
 
 	if err != nil {
 		log.Println(err)
